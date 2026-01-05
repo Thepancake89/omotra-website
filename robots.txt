@@ -1,0 +1,12 @@
+# Omotra - robots.txt
+# https://omotra.co.uk
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://omotra.co.uk/sitemap.xml
+
+# Disallow admin/private areas (none currently)
+# Disallow: /admin/
+
