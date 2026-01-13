@@ -1,0 +1,17 @@
+/* TEAM */
+Developer: Jonathan
+Site: https://omotra.com
+Location: United Kingdom
+
+/* SITE */
+Last update: 2026/01/05
+Language: English (UK)
+Standards: HTML5, CSS3, ES6+
+Components: Vanilla JavaScript
+Fonts: Space Grotesk, Outfit, JetBrains Mono (Google Fonts)
+Software: Built with care
+
+/* THANKS */
+Google Fonts for typography
+All our wonderful clients
+

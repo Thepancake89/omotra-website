@@ -1,0 +1,65 @@
+# Omotra - Web Development for UK SMBs
+# https://omotra.com
+
+## About Omotra
+Omotra is a web development agency based in the United Kingdom, specialising in websites and business automation for small and medium-sized businesses (SMBs). Our tagline is "Built well. Looked after."
+
+## Services
+
+### Website Development
+- Custom website design and development
+- Mobile-first, responsive design
+- SEO optimised from day one
+- Fast load times and conversion-focused layouts
+- Starting from £3,500
+
+### Business Systems & Automation
+- CRM setup and integration
+- Online booking systems
+- Payment processing integration
+- Email automation
+- Customer portals
+- Data sync between tools
+- Starting from £2,500
+
+### Ongoing Support
+- Monthly security updates
+- 24/7 uptime monitoring
+- Regular backups
+- Content changes included
+- Performance optimisation
+- Priority support
+- Starting from £99/month
+
+## Process
+1. Discovery (1 week) - Business goals review, systems audit, competitor analysis
+2. Proposal (2-3 days) - Fixed price quote with timeline and milestones
+3. Design (1-2 weeks) - Wireframes, mockups, 2 rounds of revisions
+4. Build (2-3 weeks) - Development with weekly progress updates
+5. Launch (1-2 days) - Final review, DNS setup, SSL, analytics
+6. Support (Ongoing) - Documentation, training, warranty, support
+
+## Target Clients
+- UK small and medium businesses (1-50 employees)
+- Hospitality and outdoor activities sectors
+- Professional services, retail, and e-commerce
+- Business owners who value quality and want a technology partner
+
+## Contact
+- Email: build@omotra.com
+- Response time: Within 24 hours (1 business day)
+- Location: United Kingdom
+
+## Portfolio Highlights
+- Halcourt Search: Recruitment website with candidate portal (3x increase in applications)
+- Packed Experiences: Trip booking site (10% improvement in sales)
+- Apex Expeditions Ltd: Full booking platform with payments
+- Freelancer Manager: SaaS platform for contractor management
+
+## Pricing Summary
+- Websites: From £3,500
+- Business Systems: From £2,500
+- Support: From £99/month
+- Average delivery: 3-4 weeks
+- Uptime guarantee: 99.9%
+

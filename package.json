@@ -1,0 +1,10 @@
+{
+  "name": "omotra-website",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "pngjs": "^7.0.0",
+    "resend": "^3.0.0"
+  }
+}
+
