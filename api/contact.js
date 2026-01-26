@@ -467,17 +467,20 @@ module.exports = async function handler(req, res) {
     
     if (sendError) {
       console.error('Resend API error:', sendError);
+      console.error('Error details:', JSON.stringify(sendError, null, 2));
       return res.status(500).json({
         success: false,
-        error: sendError?.message || 'Failed to send email'
+        error: sendError?.message || 'Failed to send email',
+        details: process.env.NODE_ENV === 'development' ? sendError : undefined
       });
     }
     
     if (!sendResult?.id) {
       console.error('Resend API error: Missing email id in response');
+      console.error('Response data:', JSON.stringify(sendResult, null, 2));
       return res.status(500).json({
         success: false,
-        error: 'Failed to send email'
+        error: 'Failed to send email - no confirmation received'
       });
     }
     console.log(`Email sent successfully to ${CONTACT_EMAIL} from ${formData.email}`);

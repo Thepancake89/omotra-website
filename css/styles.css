@@ -1498,6 +1498,9 @@ a {
   display: block;
   background: transparent;
   mix-blend-mode: normal;
+  image-rendering: auto;
+  -webkit-image-rendering: auto;
+  object-fit: contain;
 }
 
 @media (max-width: 768px) {

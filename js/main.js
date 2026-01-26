@@ -229,7 +229,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       showError(result.data && result.data.error ? result.data.error : 'Something went wrong. Please try again or email us directly at build@omotra.com');
-    }).catch(function() {
+    }).catch(function(error) {
+      console.error('Form submission error:', error);
       showError('Network error. Please check your connection and try again.');
     });
   }
