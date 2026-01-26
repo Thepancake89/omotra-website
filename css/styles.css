@@ -157,6 +157,8 @@ a {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: contain;
+  background: transparent;
 }
 
 .nav.scrolled .logo-mark {
@@ -384,6 +386,7 @@ a {
   max-width: 700px;
   animation: fadeUp 0.8s ease forwards;
 }
+
 
 .hero-tag {
   display: inline-flex;
@@ -1339,10 +1342,30 @@ a {
   padding: 2.5rem;
 }
 
+.form-success-logo {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form-success-logo-img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  background: transparent;
+  mix-blend-mode: normal;
+}
+
 .form-success-icon {
   font-size: 3rem;
   color: var(--coral);
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-success-logo-img {
+    max-width: 120px;
+  }
 }
 
 .form-success h3 {
@@ -1461,6 +1484,26 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
+}
+
+.footer-logo-animated {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo-animated img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  background: transparent;
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 768px) {
+  .footer-logo-animated img {
+    max-width: 100px;
+  }
 }
 
 .footer-tagline {

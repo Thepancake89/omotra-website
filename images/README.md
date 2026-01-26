@@ -2,6 +2,18 @@
 
 ## Required Images
 
+### logo-static.png (Main Logo)
+- **Format:** PNG with transparent background
+- **Purpose:** Static logo used in navigation header and footer across all pages
+- **Description:** Teal "C" shape with orange dot accent
+- **Note:** Must have transparent background (no solid color background)
+
+### logo-animated.gif (Animated Logo)
+- **Format:** GIF with transparent background
+- **Purpose:** Animated logo displayed in hero section on homepage
+- **Description:** Animated teal "O" shape with particle effects (orange and blue data streams)
+- **Note:** Must have transparent background (no solid color background)
+
 ### og-image.png (Social Sharing)
 - **Dimensions:** 1200 x 630 pixels
 - **Purpose:** Displayed when sharing links on social media (Facebook, LinkedIn, Twitter/X)
