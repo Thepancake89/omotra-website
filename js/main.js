@@ -32,6 +32,20 @@ document.addEventListener('DOMContentLoaded', function() {
       const isOpen = mobileMenu.classList.contains('open');
       mobileBtn.innerHTML = isOpen ? '✕' : '☰';
       mobileBtn.setAttribute('aria-expanded', isOpen);
+      if (isOpen) {
+        var firstLink = mobileMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        mobileBtn.innerHTML = '☰';
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileBtn.focus();
+      }
     });
   }
   

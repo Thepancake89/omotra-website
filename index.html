@@ -37,6 +37,7 @@
   <link rel="icon" type="image/gif" href="images/logo-animated.gif">
   <link rel="icon" type="image/png" href="images/logo-static.png" sizes="32x32">
   <link rel="apple-touch-icon" href="images/logo-static.png">
+  <link rel="manifest" href="manifest.json">
   
   <!-- Structured Data (JSON-LD) for AI/Search -->
   <script type="application/ld+json">
@@ -52,7 +53,7 @@
       "@type": "Country",
       "name": "United Kingdom"
     },
-    "priceRange": "££",
+    "priceRange": "£500 - £2,995",
     "serviceType": ["Web Development", "Business Automation", "Website Design"],
     "knowsAbout": ["Web Development", "Business Systems", "CRM Integration", "Booking Systems", "Payment Integration", "SaaS Development"],
     "slogan": "Built well. Looked after.",
@@ -66,6 +67,9 @@
 </head>
 <body>
 
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Navigation -->
   <nav class="nav">
     <a href="index.html" class="logo logo--header" aria-label="Omotra">
@@ -78,6 +82,7 @@
       <li><a href="process.html">Process</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
     </ul>
     
     <a href="contact.html" class="nav-cta">Get in touch</a>
@@ -89,14 +94,15 @@
       <a href="process.html">Process</a>
       <a href="work.html">Work</a>
       <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
       <a href="contact.html" class="nav-cta">Get in touch</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
+  <section class="hero" id="main-content">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
     
     <div class="hero-content">
       <div class="hero-tag">
@@ -126,7 +132,7 @@
     </div>
     
     <!-- Floating Digital Elements -->
-    <div class="floating-elements">
+    <div class="floating-elements" aria-hidden="true">
       <div class="float-element float-stats">
         <div class="float-stat-value">3 weeks</div>
         <div class="float-stat-label">Average time to launch</div>
@@ -174,7 +180,7 @@
     </div>
     
     <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" aria-hidden="true">
       <span class="scroll-indicator-text">Scroll</span>
       <div class="scroll-indicator-line"></div>
     </div>
@@ -306,6 +312,7 @@
       <a href="process.html">Process</a>
       <a href="work.html">Work</a>
       <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
       <a href="privacy.html">Privacy</a>
     </nav>
     

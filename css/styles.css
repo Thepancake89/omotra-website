@@ -1558,6 +1558,96 @@ a {
 }
 
 /* ===========================================
+   Blog
+   =========================================== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.blog-card {
+  padding: 2rem;
+  background: rgba(250, 248, 245, 0.02);
+  border: 1px solid rgba(250, 248, 245, 0.08);
+  border-radius: 24px;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  border-color: rgba(250, 248, 245, 0.15);
+  background: rgba(250, 248, 245, 0.03);
+  transform: translateY(-4px);
+}
+
+.blog-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.blog-title {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.blog-excerpt {
+  font-size: 0.95rem;
+  color: rgba(250, 248, 245, 0.6);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.blog-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(250, 248, 245, 0.08);
+  font-size: 0.8rem;
+  color: rgba(250, 248, 245, 0.4);
+}
+
+/* ===========================================
+   Skip Navigation & Focus
+   =========================================== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 200;
+  padding: 0.75rem 1.5rem;
+  background: var(--coral);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 0 0 12px 12px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+/* ===========================================
    Animations
    =========================================== */
 @keyframes fadeUp {

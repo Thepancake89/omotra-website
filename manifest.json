@@ -1,0 +1,21 @@
+{
+  "name": "Omotra",
+  "short_name": "Omotra",
+  "description": "Web development for UK SMBs. Built well. Looked after.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1A1A1A",
+  "theme_color": "#0A3D42",
+  "icons": [
+    {
+      "src": "/images/logo-static.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

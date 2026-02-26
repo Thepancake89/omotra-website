@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Omotra</title>
-  <meta name="description" content="Web development, business systems, and ongoing support for UK SMBs. From websites to complete digital transformation.">
+  <meta name="description" content="Website packages from £500 to £2,995. Monthly support from £49. Transparent pricing for UK small businesses.">
   
   <!-- Canonical -->
   <link rel="canonical" href="https://omotra.com/services.html">
@@ -15,13 +15,13 @@
   <meta property="og:url" content="https://omotra.com/services.html">
   <meta property="og:site_name" content="Omotra">
   <meta property="og:title" content="Services | Omotra">
-  <meta property="og:description" content="Web development, business systems, and ongoing support for UK SMBs. From websites to complete digital transformation.">
+  <meta property="og:description" content="Website packages from £500 to £2,995. Monthly support from £49. Transparent pricing for UK small businesses.">
   <meta property="og:image" content="https://omotra.com/images/og-image.png">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Services | Omotra">
-  <meta name="twitter:description" content="Web development, business systems, and ongoing support for UK SMBs.">
+  <meta name="twitter:description" content="Website packages from £500 to £2,995. Monthly support from £49.">
   <meta name="twitter:image" content="https://omotra.com/images/og-image.png">
   
   <!-- Fonts -->
@@ -44,56 +44,49 @@
     "@graph": [
       {
         "@type": "Service",
-        "name": "Website Development",
-        "description": "Custom website design and development for UK SMBs. Fast, beautiful, built to convert.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Omotra"
-        },
+        "name": "Basic Website",
+        "description": "One-page scroll site, mobile-first, contact form, SSL and hosting included.",
+        "provider": { "@type": "Organization", "name": "Omotra" },
         "areaServed": "United Kingdom",
-        "offers": {
-          "@type": "Offer",
-          "price": "3500",
-          "priceCurrency": "GBP",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": "3500",
-            "priceCurrency": "GBP",
-            "valueAddedTaxIncluded": false
-          }
-        }
+        "offers": { "@type": "Offer", "price": "500", "priceCurrency": "GBP" }
       },
       {
         "@type": "Service",
-        "name": "Business Systems & Automation",
-        "description": "CRM, bookings, payments — all connected and automated. Business systems that talk to each other.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Omotra"
-        },
+        "name": "Starter Website",
+        "description": "4-5 page website with Google Analytics, contact form with map, GDPR compliant.",
+        "provider": { "@type": "Organization", "name": "Omotra" },
         "areaServed": "United Kingdom",
-        "offers": {
-          "@type": "Offer",
-          "price": "2500",
-          "priceCurrency": "GBP"
-        }
+        "offers": { "@type": "Offer", "price": "995", "priceCurrency": "GBP" }
       },
       {
         "@type": "Service",
-        "name": "Ongoing Support",
-        "description": "Security updates, monitoring, regular backups, and priority support. We stick around.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Omotra"
-        },
+        "name": "Professional Website",
+        "description": "6-7 pages with individual service pages, local SEO, Google Business Profile setup.",
+        "provider": { "@type": "Organization", "name": "Omotra" },
+        "areaServed": "United Kingdom",
+        "offers": { "@type": "Offer", "price": "1995", "priceCurrency": "GBP" }
+      },
+      {
+        "@type": "Service",
+        "name": "Complete Website",
+        "description": "8+ pages with booking forms, priority build, 1 month free monthly plan.",
+        "provider": { "@type": "Organization", "name": "Omotra" },
+        "areaServed": "United Kingdom",
+        "offers": { "@type": "Offer", "price": "2995", "priceCurrency": "GBP" }
+      },
+      {
+        "@type": "Service",
+        "name": "Monthly Support",
+        "description": "Hosting, SSL, security, backups, and updates from £49/month.",
+        "provider": { "@type": "Organization", "name": "Omotra" },
         "areaServed": "United Kingdom",
         "offers": {
           "@type": "Offer",
-          "price": "99",
+          "price": "49",
           "priceCurrency": "GBP",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "99",
+            "price": "49",
             "priceCurrency": "GBP",
             "billingDuration": "P1M"
           }
@@ -104,6 +97,9 @@
   </script>
 </head>
 <body>
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Navigation -->
   <nav class="nav">
@@ -117,6 +113,7 @@
       <li><a href="process.html">Process</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
     </ul>
     
     <a href="contact.html" class="nav-cta">Get in touch</a>
@@ -128,6 +125,7 @@
       <a href="process.html">Process</a>
       <a href="work.html">Work</a>
       <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
       <a href="contact.html" class="nav-cta">Get in touch</a>
     </div>
   </nav>
@@ -143,68 +141,144 @@
   </header>
 
   <!-- Services Detail -->
-  <section class="section">
+  <section class="section" id="main-content">
     <div class="container">
       
-      <!-- Websites -->
+      <!-- Build Packages -->
       <div class="service-detail-card fade-in">
         <div class="service-detail-info">
           <span class="service-detail-icon">◈</span>
-          <h2 class="service-detail-title">Websites</h2>
-          <p class="service-detail-subtitle">That actually work</p>
-          <p class="service-detail-desc">Fast, beautiful, built to convert. No templates, no bloat. Every site is custom designed to reflect your brand and optimised to turn visitors into customers.</p>
-          <p class="service-detail-price">From £3,500</p>
+          <h2 class="service-detail-title">Basic</h2>
+          <p class="service-detail-subtitle">Get online fast</p>
+          <p class="service-detail-desc">A clean, professional one-page site to get your business online. Mobile-first, fast, and ready in a week.</p>
+          <p class="service-detail-price">£500</p>
         </div>
         <div class="service-detail-features">
           <ul class="service-features">
-            <li><span class="feature-check">✓</span> Custom design tailored to your brand</li>
-            <li><span class="feature-check">✓</span> Mobile-first, responsive on all devices</li>
-            <li><span class="feature-check">✓</span> SEO optimised from day one</li>
-            <li><span class="feature-check">✓</span> Lightning fast load times</li>
-            <li><span class="feature-check">✓</span> Easy content management</li>
-            <li><span class="feature-check">✓</span> Conversion-focused layouts</li>
+            <li><span class="feature-check">✓</span> One-page scroll design</li>
+            <li><span class="feature-check">✓</span> Mobile-first responsive</li>
+            <li><span class="feature-check">✓</span> Contact form</li>
+            <li><span class="feature-check">✓</span> Click-to-call button</li>
+            <li><span class="feature-check">✓</span> Reviews section</li>
+            <li><span class="feature-check">✓</span> SSL and hosting included</li>
           </ul>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: rgba(250, 248, 245, 0.5);">Delivered in 1 week</p>
         </div>
       </div>
-      
-      <!-- Business Systems -->
+
+      <div class="service-detail-card fade-in">
+        <div class="service-detail-info">
+          <span class="service-detail-icon">◈</span>
+          <h2 class="service-detail-title">Starter</h2>
+          <p class="service-detail-subtitle">The essentials</p>
+          <p class="service-detail-desc">A multi-page site with everything a growing local business needs. Google Analytics, contact form with map, and GDPR compliant.</p>
+          <p class="service-detail-price">£995</p>
+        </div>
+        <div class="service-detail-features">
+          <ul class="service-features">
+            <li><span class="feature-check">✓</span> 4-5 pages</li>
+            <li><span class="feature-check">✓</span> Mobile responsive</li>
+            <li><span class="feature-check">✓</span> Google Analytics setup</li>
+            <li><span class="feature-check">✓</span> Contact form with map</li>
+            <li><span class="feature-check">✓</span> GDPR compliant</li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: rgba(250, 248, 245, 0.5);">Delivered in 2 weeks</p>
+        </div>
+      </div>
+
       <div class="service-detail-card fade-in">
         <div class="service-detail-info">
           <span class="service-detail-icon">◇</span>
-          <h2 class="service-detail-title">Business Systems</h2>
-          <p class="service-detail-subtitle">Connected & automated</p>
-          <p class="service-detail-desc">CRM, bookings, payments — all talking to each other. We connect your tools and automate the repetitive tasks so you can focus on running your business.</p>
-          <p class="service-detail-price">From £2,500</p>
+          <h2 class="service-detail-title">Professional</h2>
+          <p class="service-detail-subtitle">Compete locally</p>
+          <p class="service-detail-desc">For businesses ready to dominate their local area. Individual service pages, local SEO, and Google Business Profile setup included.</p>
+          <p class="service-detail-price">£1,995</p>
         </div>
         <div class="service-detail-features">
           <ul class="service-features">
-            <li><span class="feature-check">✓</span> CRM setup and integration</li>
-            <li><span class="feature-check">✓</span> Online booking systems</li>
-            <li><span class="feature-check">✓</span> Payment processing</li>
-            <li><span class="feature-check">✓</span> Email automation</li>
-            <li><span class="feature-check">✓</span> Customer portals</li>
-            <li><span class="feature-check">✓</span> Data sync between tools</li>
+            <li><span class="feature-check">✓</span> 6-7 pages</li>
+            <li><span class="feature-check">✓</span> Individual service pages</li>
+            <li><span class="feature-check">✓</span> Local SEO setup</li>
+            <li><span class="feature-check">✓</span> Google Business Profile setup</li>
+            <li><span class="feature-check">✓</span> Performance optimised</li>
+            <li><span class="feature-check">✓</span> WCAG AA accessible</li>
           </ul>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: rgba(250, 248, 245, 0.5);">Delivered in 3 weeks</p>
         </div>
       </div>
-      
-      <!-- Ongoing Support -->
+
       <div class="service-detail-card fade-in">
         <div class="service-detail-info">
           <span class="service-detail-icon">○</span>
-          <h2 class="service-detail-title">Ongoing Support</h2>
-          <p class="service-detail-subtitle">We stick around</p>
-          <p class="service-detail-desc">Security, updates, improvements. You're never on your own. We provide the ongoing care your technology needs to keep running smoothly.</p>
-          <p class="service-detail-price">From £99/month</p>
+          <h2 class="service-detail-title">Complete</h2>
+          <p class="service-detail-subtitle">Everything done properly</p>
+          <p class="service-detail-desc">The full package. Booking forms, priority build, a dedicated point of contact, and your first month of support included free.</p>
+          <p class="service-detail-price">£2,995</p>
         </div>
         <div class="service-detail-features">
           <ul class="service-features">
-            <li><span class="feature-check">✓</span> Monthly security updates</li>
-            <li><span class="feature-check">✓</span> 24/7 uptime monitoring</li>
-            <li><span class="feature-check">✓</span> Regular backups</li>
-            <li><span class="feature-check">✓</span> Content changes included</li>
-            <li><span class="feature-check">✓</span> Performance optimisation</li>
+            <li><span class="feature-check">✓</span> 8+ pages</li>
+            <li><span class="feature-check">✓</span> Booking or quote request form</li>
+            <li><span class="feature-check">✓</span> Priority build</li>
+            <li><span class="feature-check">✓</span> 1 month free monthly plan</li>
+            <li><span class="feature-check">✓</span> Dedicated point of contact</li>
+            <li><span class="feature-check">✓</span> Advanced analytics</li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: rgba(250, 248, 245, 0.5);">Delivered in 2 weeks</p>
+        </div>
+      </div>
+
+      <!-- Monthly Plans -->
+      <div style="margin-top: 4rem;" class="fade-in">
+        <p class="section-tag">Monthly Plans</p>
+        <h2 class="section-title" style="margin-bottom: 2rem;">Ongoing support</h2>
+      </div>
+
+      <div class="service-detail-card fade-in">
+        <div class="service-detail-info">
+          <h3 class="service-detail-title">Keep it running</h3>
+          <p class="service-detail-price">£49/month</p>
+        </div>
+        <div class="service-detail-features">
+          <ul class="service-features">
+            <li><span class="feature-check">✓</span> Hosting, SSL and security</li>
+            <li><span class="feature-check">✓</span> Uptime monitoring</li>
+            <li><span class="feature-check">✓</span> Weekly backups</li>
+            <li><span class="feature-check">✓</span> 30 minutes of updates per month</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-detail-card fade-in">
+        <div class="service-detail-info">
+          <h3 class="service-detail-title">Keep it growing</h3>
+          <p class="service-detail-price">£149/month</p>
+        </div>
+        <div class="service-detail-features">
+          <ul class="service-features">
+            <li><span class="feature-check">✓</span> Everything in Keep it running</li>
+            <li><span class="feature-check">✓</span> Google Business Profile management</li>
+            <li><span class="feature-check">✓</span> Monthly health check</li>
+            <li><span class="feature-check">✓</span> 1 hour of updates per month</li>
+            <li><span class="feature-check">✓</span> Performance snapshot</li>
             <li><span class="feature-check">✓</span> Priority support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-detail-card fade-in">
+        <div class="service-detail-info">
+          <h3 class="service-detail-title">Keep it ahead</h3>
+          <p class="service-detail-price">£249/month</p>
+        </div>
+        <div class="service-detail-features">
+          <ul class="service-features">
+            <li><span class="feature-check">✓</span> Everything in Keep it growing</li>
+            <li><span class="feature-check">✓</span> Full local SEO management</li>
+            <li><span class="feature-check">✓</span> Quarterly SEO review</li>
+            <li><span class="feature-check">✓</span> 2 hours of updates per month</li>
+            <li><span class="feature-check">✓</span> Conversion tracking</li>
+            <li><span class="feature-check">✓</span> Quarterly strategy call</li>
           </ul>
         </div>
       </div>
@@ -243,6 +317,7 @@
       <a href="process.html">Process</a>
       <a href="work.html">Work</a>
       <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
       <a href="privacy.html">Privacy</a>
     </nav>
     
