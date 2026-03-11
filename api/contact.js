@@ -6,22 +6,40 @@
 
 const { Resend } = require('resend');
 
-function logDebug(payload) {
-  // #region agent log
-  fetch('http://127.0.0.1:7242/ingest/28dc9884-0142-4dce-a6ef-6c488d95962b', {
+// Allowed origins
+const ALLOWED_ORIGINS = [
+  'https://www.omotra.com',
+  'https://omotra.com',
+];
+
+/**
+ * Verify Cloudflare Turnstile token
+ */
+async function verifyTurnstile(token, ip) {
+  if (!process.env.TURNSTILE_SECRET_KEY) return true; // Skip if not configured
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      sessionId: 'debug-session',
-      runId: payload.runId || 'initial',
-      hypothesisId: payload.hypothesisId,
-      location: payload.location,
-      message: payload.message,
-      data: payload.data,
-      timestamp: Date.now()
-    })
-  }).catch(() => {});
-  // #endregion
+      secret: process.env.TURNSTILE_SECRET_KEY,
+      response: token,
+      remoteip: ip,
+    }),
+  });
+  const result = await response.json();
+  return result.success === true;
+}
+
+/**
+ * Check Origin/Referer header against allowed domains
+ */
+function isAllowedOrigin(req) {
+  if (process.env.VERCEL_ENV === 'development') return true;
+  const origin = req.headers['origin'] || '';
+  const referer = req.headers['referer'] || '';
+  if (origin && ALLOWED_ORIGINS.includes(origin)) return true;
+  if (referer && ALLOWED_ORIGINS.some(o => referer.startsWith(o))) return true;
+  return false;
 }
 
 // In-memory store for rate limiting
@@ -311,17 +329,19 @@ ${data.source ? `From: ${data.source}` : ''}
  */
 module.exports = async function handler(req, res) {
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  const origin = req.headers['origin'] || '';
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
+
   // Handle OPTIONS request
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
+    res.status(204).end();
     return;
   }
-  
+
   // Only accept POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({
@@ -329,24 +349,17 @@ module.exports = async function handler(req, res) {
       error: 'Method not allowed'
     });
   }
+
+  // Origin check
+  if (!isAllowedOrigin(req)) {
+    return res.status(403).json({ success: false, error: 'Forbidden' });
+  }
   
   try {
     // Load environment variables
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
     const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL;
     const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
-    logDebug({
-      runId: 'initial',
-      hypothesisId: 'H1',
-      location: 'api/contact.js:handler',
-      message: 'Env var presence check',
-      data: {
-        hasResendApiKey: Boolean(RESEND_API_KEY),
-        hasResendFromEmail: Boolean(RESEND_FROM_EMAIL),
-        hasContactEmail: Boolean(CONTACT_EMAIL)
-      }
-    });
-    
     // Validate environment variables are set
     if (!RESEND_API_KEY || !RESEND_FROM_EMAIL || !CONTACT_EMAIL) {
       console.error('Missing required environment variables');
@@ -361,18 +374,6 @@ module.exports = async function handler(req, res) {
     
     // Check rate limit
     const rateLimit = checkRateLimit(clientIp);
-    logDebug({
-      runId: 'initial',
-      hypothesisId: 'H4',
-      location: 'api/contact.js:handler',
-      message: 'Rate limit evaluation',
-      data: {
-        allowed: rateLimit.allowed,
-        remaining: rateLimit.remaining,
-        resetTime: rateLimit.resetTime || null,
-        hasClientIp: Boolean(clientIp)
-      }
-    });
     if (!rateLimit.allowed) {
       console.log(`Rate limit exceeded for IP: ${clientIp}`);
       return res.status(429).json({
@@ -401,31 +402,8 @@ module.exports = async function handler(req, res) {
         error: 'Invalid request body'
       });
     }
-    logDebug({
-      runId: 'initial',
-      hypothesisId: 'H2',
-      location: 'api/contact.js:handler',
-      message: 'Incoming payload snapshot',
-      data: {
-        keys: Object.keys(formData || []),
-        nameLength: formData?.name?.length || 0,
-        messageLength: formData?.message?.length || 0
-      }
-    });
-    
     // Validate form data
     const validation = validateFormData(formData);
-    logDebug({
-      runId: 'initial',
-      hypothesisId: 'H2',
-      location: 'api/contact.js:handler',
-      message: 'Validation result',
-      data: {
-        valid: validation.valid,
-        error: validation.error || null,
-        silent: validation.silent || false
-      }
-    });
     if (!validation.valid) {
       // Silent rejection for honeypot spam
       if (validation.silent) {
@@ -441,6 +419,22 @@ module.exports = async function handler(req, res) {
       });
     }
     
+    // Verify Turnstile CAPTCHA
+    const turnstileToken = formData['cf-turnstile-response'] || '';
+    if (process.env.TURNSTILE_SECRET_KEY) {
+      if (!turnstileToken) {
+        return res.status(400).json({ success: false, error: 'Please complete the verification check' });
+      }
+      try {
+        const valid = await verifyTurnstile(turnstileToken, clientIp);
+        if (!valid) {
+          return res.status(400).json({ success: false, error: 'Verification failed. Please try again.' });
+        }
+      } catch (err) {
+        console.error('Turnstile verification error:', err);
+      }
+    }
+
     // Initialize Resend
     const resend = new Resend(RESEND_API_KEY);
     
@@ -453,18 +447,6 @@ module.exports = async function handler(req, res) {
       html: generateHtmlEmail(formData),
       text: generateTextEmail(formData)
     });
-    logDebug({
-      runId: 'initial',
-      hypothesisId: 'H3',
-      location: 'api/contact.js:handler',
-      message: 'Resend send result',
-      data: {
-        hasSendError: Boolean(sendError),
-        sendErrorMessage: sendError?.message || null,
-        sendResultId: sendResult?.id || null
-      }
-    });
-    
     if (sendError) {
       console.error('Resend API error:', sendError);
       console.error('Error details:', JSON.stringify(sendError, null, 2));
@@ -491,13 +473,6 @@ module.exports = async function handler(req, res) {
     });
     
   } catch (error) {
-    logDebug({
-      runId: 'initial',
-      hypothesisId: 'H5',
-      location: 'api/contact.js:handler',
-      message: 'Unhandled error',
-      data: { errorMessage: error?.message || 'unknown', errorName: error?.name || 'Error' }
-    });
     console.error('Contact form error:', error);
     return res.status(500).json({
       success: false,

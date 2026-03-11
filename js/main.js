@@ -58,43 +58,51 @@ document.addEventListener('DOMContentLoaded', function() {
   const scrollIndicator = document.querySelector('.scroll-indicator');
   
   if (heroBg || floatingElements.length > 0) {
+    var parallaxTicking = false;
     window.addEventListener('scroll', function() {
-      const scrollY = window.pageYOffset;
-      
-      // Background parallax
-      if (heroBg) {
-        heroBg.style.transform = `translateY(${scrollY * 0.05}px) scale(${1 + scrollY / 2000})`;
-        heroBg.style.opacity = Math.max(0.3, 1 - scrollY / 800);
-      }
-      
-      // Grid parallax
-      if (heroGrid) {
-        heroGrid.style.transform = `translateY(${scrollY * 0.1}px)`;
-        heroGrid.style.opacity = Math.max(0.2, 0.5 - scrollY / 1000);
-      }
-      
-      // Floating elements parallax
-      floatingElements.forEach((el, index) => {
-        const speeds = [0.4, 0.55, 0.3, 0.45, 0.35, 0.5];
-        const xSpeeds = [0.1, -0.08, 0.15, -0.12, 0, 0];
-        const rotations = [0.03, -0.02, 0, 0, -0.025, 0];
-        
-        const speed = speeds[index] || 0.4;
-        const xSpeed = xSpeeds[index] || 0;
-        const rotation = rotations[index] || 0;
-        
-        const yOffset = -scrollY * speed;
-        const xOffset = scrollY * xSpeed;
-        const rotate = scrollY * rotation;
-        const opacity = Math.max(0, 1 - scrollY / 400);
-        
-        el.style.transform = `translateY(${yOffset}px) translateX(${xOffset}px) rotate(${rotate}deg)`;
-        el.style.opacity = opacity;
-      });
-      
-      // Scroll indicator fade
-      if (scrollIndicator) {
-        scrollIndicator.style.opacity = Math.max(0, 1 - scrollY / 150);
+      if (!parallaxTicking) {
+        window.requestAnimationFrame(function() {
+          var scrollY = window.pageYOffset;
+
+          // Background parallax
+          if (heroBg) {
+            heroBg.style.transform = 'translateY(' + (scrollY * 0.05) + 'px) scale(' + (1 + scrollY / 2000) + ')';
+            heroBg.style.opacity = Math.max(0.3, 1 - scrollY / 800);
+          }
+
+          // Grid parallax
+          if (heroGrid) {
+            heroGrid.style.transform = 'translateY(' + (scrollY * 0.1) + 'px)';
+            heroGrid.style.opacity = Math.max(0.2, 0.5 - scrollY / 1000);
+          }
+
+          // Floating elements parallax
+          floatingElements.forEach(function(el, index) {
+            var speeds = [0.4, 0.55, 0.3, 0.45, 0.35, 0.5];
+            var xSpeeds = [0.1, -0.08, 0.15, -0.12, 0, 0];
+            var rotations = [0.03, -0.02, 0, 0, -0.025, 0];
+
+            var speed = speeds[index] || 0.4;
+            var xSpeed = xSpeeds[index] || 0;
+            var rotation = rotations[index] || 0;
+
+            var yOffset = -scrollY * speed;
+            var xOffset = scrollY * xSpeed;
+            var rotate = scrollY * rotation;
+            var opacity = Math.max(0, 1 - scrollY / 400);
+
+            el.style.transform = 'translateY(' + yOffset + 'px) translateX(' + xOffset + 'px) rotate(' + rotate + 'deg)';
+            el.style.opacity = opacity;
+          });
+
+          // Scroll indicator fade
+          if (scrollIndicator) {
+            scrollIndicator.style.opacity = Math.max(0, 1 - scrollY / 150);
+          }
+
+          parallaxTicking = false;
+        });
+        parallaxTicking = true;
       }
     });
   }
@@ -274,9 +282,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   navLinks.forEach(function(link) {
     const href = link.getAttribute('href');
-    if (currentPath === href || 
-        (currentPath === '/' && href === 'index.html') ||
-        (currentPath.endsWith(href))) {
+    if (currentPath === href ||
+        (currentPath === '/' && href === '/') ||
+        (href !== '/' && currentPath.endsWith(href))) {
       link.classList.add('active');
     }
   });

@@ -7,12 +7,12 @@
   <meta name="description" content="Get in touch to discuss your project. We respond within two business day.">
   
   <!-- Canonical -->
-  <link rel="canonical" href="https://omotra.com/contact.html">
+  <link rel="canonical" href="https://omotra.com/contact">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:url" content="https://omotra.com/contact.html">
+  <meta property="og:url" content="https://omotra.com/contact">
   <meta property="og:site_name" content="Omotra">
   <meta property="og:title" content="Contact | Omotra">
   <meta property="og:description" content="Get in touch to discuss your project. We respond within one business day.">
@@ -30,12 +30,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.min.css">
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo_1024_darkbg.png">
-  <link rel="icon" type="image/png" href="images/logo-static.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="images/logo-static.png">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="apple-touch-icon" href="images/logo_1024_darkbg.png">
 </head>
 <body>
 
@@ -44,30 +47,30 @@
 
   <!-- Navigation -->
   <nav class="nav">
-    <a href="index.html" class="logo logo--header" aria-label="Omotra">
-      <span class="logo-mark"><img src="images/logo-static.png" alt=""></span>
+    <a href="/" class="logo logo--header" aria-label="Omotra">
+      <span class="logo-mark"><img src="images/logo.svg" alt=""></span>
       <span class="logo-wordmark">motra</span>
     </a>
     
     <ul class="nav-links">
-      <li><a href="services.html">Services</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/process">Process</a></li>
+      <li><a href="/work">Work</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
     </ul>
     
-    <a href="contact.html" class="nav-cta" style="background: var(--coral); border-color: var(--coral); color: white;">Get in touch</a>
+    <a href="/contact" class="nav-cta" style="background: var(--coral); border-color: var(--coral); color: white;">Get in touch</a>
     
     <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
     
     <div class="nav-mobile">
-      <a href="services.html">Services</a>
-      <a href="process.html">Process</a>
-      <a href="work.html">Work</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html" class="nav-cta">Get in touch</a>
+      <a href="/services">Services</a>
+      <a href="/process">Process</a>
+      <a href="/work">Work</a>
+      <a href="/about">About</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact" class="nav-cta">Get in touch</a>
     </div>
   </nav>
 
@@ -168,6 +171,9 @@
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
             </div>
             
+            <!-- Cloudflare Turnstile CAPTCHA -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACpME5UePDxgT-TO" data-theme="dark" style="margin-bottom: 1rem;"></div>
+
             <button type="submit" class="btn btn-primary" style="width: 100%;">
               Send message
               <span class="btn-arrow">→</span>
@@ -196,25 +202,52 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-brand">
-      <a href="index.html" class="logo">
-        <span class="logo-mark"><img src="images/logo-static.png" alt="Omotra logo"></span>
+      <a href="/" class="logo">
+        <span class="logo-mark"><img src="images/logo.svg" alt="Omotra logo"></span>
         <span>Omotra</span>
       </a>
       <p class="footer-tagline">Built well. Looked after.</p>
     </div>
     
     <nav class="footer-links">
-      <a href="services.html">Services</a>
-      <a href="process.html">Process</a>
-      <a href="work.html">Work</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html">Blog</a>
-      <a href="privacy.html">Privacy</a>
+      <a href="/services">Services</a>
+      <a href="/process">Process</a>
+      <a href="/work">Work</a>
+      <a href="/contact">Contact</a>
+      <a href="/blog">Blog</a>
+      <a href="/privacy">Privacy</a>
     </nav>
     
     <p class="footer-copyright">© 2026 Omotra. All rights reserved.</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
+
+  <!-- Turnstile token injection — patches the existing form handler -->
+  <script>
+  (function() {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    // Store original fetch to intercept the form submission
+    var originalFetch = window.fetch;
+    window.fetch = function(url, options) {
+      if (url === '/api/contact' && options && options.method === 'POST') {
+        try {
+          var body = JSON.parse(options.body);
+          var turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+          if (turnstileInput) {
+            body['cf-turnstile-response'] = turnstileInput.value;
+          }
+          options.body = JSON.stringify(body);
+        } catch(e) {}
+      }
+      return originalFetch.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <!-- Vercel Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
