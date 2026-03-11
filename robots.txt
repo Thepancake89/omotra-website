@@ -1,12 +1,6 @@
-# Omotra - robots.txt
-# https://omotra.com
-
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Sitemap location
 Sitemap: https://omotra.com/sitemap.xml
-
-# Disallow admin/private areas (none currently)
-# Disallow: /admin/
 
