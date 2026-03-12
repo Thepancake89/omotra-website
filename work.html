@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work | Omotra</title>
-  <meta name="description" content="Real results for real businesses. Case studies and projects we are proud of.">
+  <meta name="description" content="Websites, web apps, and AI products built by Omotra. From recruitment platforms to booking systems — real results for real businesses.">
   
   <!-- Canonical -->
   <link rel="canonical" href="https://omotra.com/work">
@@ -15,13 +15,13 @@
   <meta property="og:url" content="https://omotra.com/work">
   <meta property="og:site_name" content="Omotra">
   <meta property="og:title" content="Work | Omotra">
-  <meta property="og:description" content="Real results for real businesses. Case studies and projects we are proud of.">
+  <meta property="og:description" content="Websites, web apps, and AI products built by Omotra. From recruitment platforms to booking systems — real results for real businesses.">
   <meta property="og:image" content="https://omotra.com/images/og-image.png">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Work | Omotra">
-  <meta name="twitter:description" content="Real results for real businesses. Case studies and projects we are proud of.">
+  <meta name="twitter:description" content="Websites, web apps, and AI products built by Omotra. From recruitment platforms to booking systems — real results for real businesses.">
   <meta name="twitter:image" content="https://omotra.com/images/og-image.png">
   
   <!-- Fonts -->
@@ -36,6 +36,72 @@
   <link rel="icon" type="image/png" href="images/logo_1024_darkbg.png">
   <link rel="icon" type="image/svg+xml" href="images/logo.svg">
   <link rel="apple-touch-icon" href="images/logo_1024_darkbg.png">
+
+  <!-- Schema.org Portfolio -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Omotra Portfolio",
+    "description": "Websites, web apps, and digital products built by Omotra for UK businesses.",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "Halcourt Search",
+          "description": "Modern recruitment website with integrated candidate portal for a specialist data, AI, and technology search firm.",
+          "url": "https://www.halcourtsearch.com",
+          "creator": {"@type": "Organization", "name": "Omotra", "url": "https://omotra.com"}
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "Apex Expeditions",
+          "description": "Complete booking platform with custom booking system, payment integration, and backend account management.",
+          "creator": {"@type": "Organization", "name": "Omotra", "url": "https://omotra.com"}
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "Radiance Reiki",
+          "description": "Peaceful brochure website for a Reiki healing practitioner in Cape Town with booking pathway.",
+          "creator": {"@type": "Organization", "name": "Omotra", "url": "https://omotra.com"}
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Ascent",
+          "description": "Multi-tenant staff management SaaS platform for outdoor activity centres.",
+          "applicationCategory": "BusinessApplication",
+          "creator": {"@type": "Organization", "name": "Omotra", "url": "https://omotra.com"}
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "RecruitIQ",
+          "description": "AI-powered desktop recruitment agent with eight specialised AI agents.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Windows",
+          "creator": {"@type": "Organization", "name": "Omotra", "url": "https://omotra.com"}
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -45,7 +111,7 @@
   <!-- Navigation -->
   <nav class="nav">
     <a href="/" class="logo logo--header" aria-label="Omotra">
-      <span class="logo-mark"><img src="images/logo.svg" alt=""></span>
+      <span class="logo-mark"><img src="images/logo.png" alt=""></span>
       <span class="logo-wordmark">motra</span>
     </a>
     
@@ -85,53 +151,40 @@
   <section class="section" id="main-content">
     <div class="container">
       <div class="projects-grid">
-        
+
         <!-- Project 1: Halcourt Search -->
-        <article class="project-card fade-in">
+        <article class="project-card fade-in" data-project="halcourt-search">
           <div class="project-image" style="background: linear-gradient(135deg, #1A7A82, #1A7A82dd);">
             <span style="font-size: 3rem;">◈</span>
           </div>
           <div class="project-content">
-            <span class="project-category">Website + Portal</span>
-            <h2 class="project-title">Halcourt Search</h2>
-            <p class="project-description">Modern website with integrated candidate portal for a specialist recruitment agency. Clean design focused on connecting top talent with leading employers.</p>
-            
+            <span class="project-category">Website + Candidate Portal</span>
+            <h3 class="project-title">Halcourt Search</h3>
+            <p class="project-description">Modern recruitment website with integrated candidate portal for a specialist data, AI, and technology search firm. Clean, professional design focused on connecting top talent with leading employers.</p>
+            <p class="project-tech">HTML, CSS, JavaScript, Vercel</p>
+
             <ul class="project-results">
               <li>3x increase in applications</li>
               <li>Streamlined candidate experience</li>
               <li>Integrated candidate portal</li>
+              <li>Cloudflare Turnstile spam protection</li>
             </ul>
+
+            <a href="https://www.halcourtsearch.com" target="_blank" rel="noopener noreferrer" class="project-link">View live site <span class="btn-arrow">&rarr;</span></a>
           </div>
         </article>
-        
-        <!-- Project 2: Packed Experiences -->
-        <article class="project-card fade-in">
-          <div class="project-image" style="background: linear-gradient(135deg, #E07A5F, #E07A5Fdd);">
+
+        <!-- Project 2: Apex Expeditions -->
+        <article class="project-card fade-in" data-project="apex-expeditions">
+          <div class="project-image" style="background: linear-gradient(135deg, #0F5C63, #0F5C63dd);">
             <span style="font-size: 3rem;">◇</span>
           </div>
           <div class="project-content">
-            <span class="project-category">Booking System</span>
-            <h2 class="project-title">Packed Experiences</h2>
-            <p class="project-description">Trip booking site with modern, interactive design optimised for conversions. Beautiful user experience that makes booking adventures effortless.</p>
-            
-            <ul class="project-results">
-              <li>10% improvement in sales</li>
-              <li>Modern interactive design</li>
-              <li>High-conversion booking flow</li>
-            </ul>
-          </div>
-        </article>
-        
-        <!-- Project 3: Apex Expeditions -->
-        <article class="project-card fade-in">
-          <div class="project-image" style="background: linear-gradient(135deg, #0F5C63, #0F5C63dd);">
-            <span style="font-size: 3rem;">○</span>
-          </div>
-          <div class="project-content">
             <span class="project-category">Website + Booking + Payments</span>
-            <h2 class="project-title">Apex Expeditions Ltd</h2>
-            <p class="project-description">Complete booking platform for travel and experiences. Custom booking system, payment integration, and backend account management — all built from the ground up.</p>
-            
+            <h3 class="project-title">Apex Expeditions</h3>
+            <p class="project-description">Complete booking platform for a travel and experiences company. Custom booking system, payment integration, and backend account management — all built from the ground up.</p>
+            <p class="project-tech">React, TypeScript, Stripe, Vercel</p>
+
             <ul class="project-results">
               <li>End-to-end digital transformation</li>
               <li>Custom booking system</li>
@@ -140,25 +193,69 @@
             </ul>
           </div>
         </article>
-        
-        <!-- Project 4: Freelancer Manager -->
-        <article class="project-card fade-in">
+
+        <!-- Project 3: Radiance Reiki -->
+        <article class="project-card fade-in" data-project="radiance-reiki">
+          <div class="project-image" style="background: linear-gradient(135deg, #7C9A8E, #7C9A8Edd);">
+            <span style="font-size: 3rem;">☯</span>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Brochure Website</span>
+            <h3 class="project-title">Radiance Reiki</h3>
+            <p class="project-description">Peaceful, calming brochure website for a Reiki healing practitioner in Cape Town. Nature-focused imagery with scroll animations, three pricing tiers, and a booking pathway for both in-person and distance sessions.</p>
+            <p class="project-tech">React, TypeScript, Tailwind CSS, Vite</p>
+
+            <ul class="project-results">
+              <li>Online presence established</li>
+              <li>Booking pathway for local and international clients</li>
+              <li>Mobile-first responsive design</li>
+              <li>GDPR compliant</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Project 4: Ascent (Omotra Product) -->
+        <article class="project-card fade-in" data-project="ascent">
           <div class="project-image" style="background: linear-gradient(135deg, #8B5CF6, #8B5CF6dd);">
             <span style="font-size: 3rem;">◈</span>
           </div>
           <div class="project-content">
-            <span class="project-category">SaaS / Web App</span>
-            <h2 class="project-title">Freelancer Manager</h2>
-            <p class="project-description">SaaS platform for managing freelancer relationships and workflows. Streamlines contractor management, invoicing, and project tracking for growing businesses.</p>
-            
+            <span class="project-category">SaaS Web App</span>
+            <span class="project-badge">Built by Omotra</span>
+            <h3 class="project-title">Ascent</h3>
+            <p class="project-description">Multi-tenant staff management platform for outdoor activity centres. Manages freelancer relationships, scheduling, invoicing, and project tracking with role-based access control and real-time dashboards.</p>
+            <p class="project-tech">React 19, TypeScript, Tailwind CSS, Supabase, Vitest</p>
+
             <ul class="project-results">
-              <li>Custom-built SaaS platform</li>
-              <li>Freelancer relationship management</li>
-              <li>Workflow automation</li>
+              <li>62 automated tests passing</li>
+              <li>Multi-tenant architecture</li>
+              <li>Role-based access control</li>
+              <li>Real-time dashboards</li>
             </ul>
           </div>
         </article>
-        
+
+        <!-- Project 5: RecruitIQ (Omotra Product) -->
+        <article class="project-card fade-in" data-project="recruitiq">
+          <div class="project-image" style="background: linear-gradient(135deg, #F59E0B, #F59E0Bdd);">
+            <span style="font-size: 3rem;">⬡</span>
+          </div>
+          <div class="project-content">
+            <span class="project-category">AI Desktop Application</span>
+            <span class="project-badge">Built by Omotra</span>
+            <h3 class="project-title">RecruitIQ</h3>
+            <p class="project-description">AI-powered recruitment agent for Windows. Eight specialised AI agents handle daily recruitment admin — finding companies, matching candidates, and drafting outreach. Runs locally on the recruiter's machine with encrypted API keys.</p>
+            <p class="project-tech">Electron, React, TypeScript, Tailwind CSS</p>
+
+            <ul class="project-results">
+              <li>8 AI recruitment agents</li>
+              <li>Automated candidate matching</li>
+              <li>Encrypted local processing</li>
+              <li>Setup wizard with role specialisms</li>
+            </ul>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -180,7 +277,7 @@
   <footer class="footer">
     <div class="footer-brand">
       <a href="/" class="logo">
-        <span class="logo-mark"><img src="images/logo.svg" alt="Omotra logo"></span>
+        <span class="logo-mark"><img src="images/logo.png" alt="Omotra logo"></span>
         <span>Omotra</span>
       </a>
       <p class="footer-tagline">Built well. Looked after.</p>
