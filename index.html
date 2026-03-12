@@ -39,6 +39,22 @@
   <link rel="apple-touch-icon" href="images/logo_1024_darkbg.png">
   <link rel="manifest" href="manifest.json">
   
+  <!-- WebSite Schema (enables sitelinks in search) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Omotra",
+    "url": "https://omotra.com",
+    "description": "Web development and business systems for UK small businesses.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://omotra.com/blog?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <!-- Structured Data (JSON-LD) for AI/Search -->
   <script type="application/ld+json">
   {
@@ -47,7 +63,7 @@
     "name": "Omotra",
     "description": "Web development and business automation for UK SMBs. Websites and business systems that just work.",
     "url": "https://omotra.com",
-    "logo": "https://omotra.com/images/og-image.png",
+    "logo": "https://omotra.com/images/logo_1024_darkbg.png",
     "image": "https://omotra.com/images/og-image.png",
     "email": "build@omotra.com",
     "telephone": "",
