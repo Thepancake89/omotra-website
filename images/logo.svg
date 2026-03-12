@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Dark teal circular shape (C-like) with opening at bottom left -->
-  <path d="M 50 15 A 35 35 0 0 1 85 50 A 35 35 0 0 1 50 85" 
-        stroke="#0A3D42" 
-        stroke-width="10" 
-        fill="none" 
+  <!-- C-shaped arc (opening at bottom left) -->
+  <path d="M 33 15 A 35 35 0 0 1 68 50 A 35 35 0 0 1 33 85"
+        stroke="#FAF8F5"
+        stroke-width="10"
+        fill="none"
         stroke-linecap="round"
         stroke-linejoin="round"/>
-  
-  <!-- Bright orange circular dot at top right -->
-  <circle cx="80" cy="20" r="7" fill="#E07A5F"/>
-  
-  <!-- Thin dark teal curved line extending from orange dot downward and left -->
-  <path d="M 80 27 Q 75 35 65 45 Q 55 55 50 60" 
-        stroke="#0A3D42" 
-        stroke-width="2.5" 
-        fill="none" 
+
+  <!-- Coral dot at top right -->
+  <circle cx="63" cy="20" r="7" fill="#E07A5F"/>
+
+  <!-- Thin curved line from dot downward -->
+  <path d="M 63 27 Q 58 35 48 45 Q 38 55 33 60"
+        stroke="#FAF8F5"
+        stroke-width="2.5"
+        fill="none"
         stroke-linecap="round"/>
-  
-  <!-- Lower dark teal arc/band separated by gap -->
-  <path d="M 50 75 A 28 28 0 0 1 72 65" 
-        stroke="#0A3D42" 
-        stroke-width="6" 
-        fill="none" 
+
+  <!-- Lower arc/band -->
+  <path d="M 33 75 A 28 28 0 0 1 55 65"
+        stroke="#FAF8F5"
+        stroke-width="6"
+        fill="none"
         stroke-linecap="round"/>
 </svg>
