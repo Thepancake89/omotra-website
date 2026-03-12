@@ -151,6 +151,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
+  flex-shrink: 0;
 }
 
 .logo-mark img {
@@ -1773,6 +1775,8 @@ a.blog-card:hover .blog-title {
 
 .blog-post-cta .btn {
   display: inline-flex;
+  color: white;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

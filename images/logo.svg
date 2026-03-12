@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 120 120" width="100" height="100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <!-- Dark teal circular shape (C-like) with opening at bottom left -->
   <path d="M 50 15 A 35 35 0 0 1 85 50 A 35 35 0 0 1 50 85" 
         stroke="#0A3D42" 
